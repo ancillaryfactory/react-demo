@@ -1,0 +1,26 @@
+.item-list {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.item-list ul {
+  padding: 0;
+}
+
+.item-list li {
+  list-style-type: none;
+  margin-top: 5px;
+}
+
+.item-list li a {
+  display: block;
+  padding: 15px;
+  background: #efefef;
+  color: #444;
+  text-decoration: none;
+}
+
+.item-list li a:hover {
+  background: #dedede;
+  color: #111;
+}
