@@ -15,6 +15,7 @@ class App extends Component {
         {id: 2, title: 'Second'},
         {id: 3, title: 'Third'},
       ],
+      newItem: '',
     };
   }
 
@@ -22,13 +23,18 @@ class App extends Component {
     this.refs.newItem.focus();
   }
 
+  handleNewItemChange = (e) => this.setState({ newItem: e.target.value });
+
   handleSubmit = (e) => {
     e.preventDefault();
     const newItem = {
       id: this.state.items.length + 1,
       title: this.refs.newItem.value,
     }
-    this.setState({ items: [...this.state.items, newItem], });
+    this.setState({
+      items: [...this.state.items, newItem],
+      newItem: '',
+     });
   }
 
   render() {
@@ -42,7 +48,7 @@ class App extends Component {
         <ItemList items={this.state.items} />
 
         <form onSubmit={this.handleSubmit} className="item-form">
-          <input ref="newItem" />
+          <input ref="newItem" value={this.state.newItem} onChange={this.handleNewItemChange} />
           <input type="submit" value="Add" />
         </form>
 
