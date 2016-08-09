@@ -3,13 +3,8 @@ import Item from './Item';
 import './ItemList.css';
 
 export default class ItemList extends Component {
-  //getItemList = (items) => items.map(x => <Item title={x.title} />);
 
-  getItemList = function(items) {
-    return items.map(function(x) {
-      return <Item id={x.id} key={x.id} title={x.title} />
-    })
-  }
+  getItemList = (items) => items.map(x => <Item id={x.id} key={x.id} title={x.title} handleDelete={this.props.handleDelete} />);
 
   render() {
     return (
