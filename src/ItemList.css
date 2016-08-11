@@ -10,23 +10,14 @@
 .item-list li {
   list-style-type: none;
   margin-top: 5px;
+}
+
+.item-list li a {
   display: block;
   padding: 15px;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-li.notClicked {
-  background: #444;
-}
-li.done {
   background: #efefef;
-  color: #aaa;
-}
-
-li {
-  background: #ffffff;
+  color: #444;
+  text-decoration: none;
 }
 
 .item-list li a:hover {

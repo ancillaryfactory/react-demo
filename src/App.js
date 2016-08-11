@@ -16,7 +16,6 @@ class App extends Component {
         {id: 3, title: 'Third'},
       ],
       newItem: '',
-
     };
   }
 
@@ -46,7 +45,7 @@ class App extends Component {
           <h1>{data.title}</h1>
         </div>
 
-        <ItemList subhead={data.subhead} items={this.state.items} />
+        <ItemList items={this.state.items} />
 
         <form onSubmit={this.handleSubmit} className="item-form">
           <input ref="newItem" value={this.state.newItem} onChange={this.handleNewItemChange} />

@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
 
-export default class Item extends Component {
-  handleClick = (e) => {
-    this.setState({clicked:"done"});
-  }
-
-  constructor(props) {
-    super();
-
-    this.state = {clicked:"notClicked"};
-  }
-
+export default class ItemList extends Component {
   render() {
     return (
-      <li className={this.state.clicked} onClick={this.handleClick} id={this.props.id}>{this.props.title}</li>
+      <li><a href={`/item/${this.props.id}`}>{this.props.title}</a></li>
     );
   }
 }
