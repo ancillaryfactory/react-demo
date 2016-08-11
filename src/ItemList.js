@@ -4,7 +4,6 @@ import './ItemList.css';
 
 export default class ItemList extends Component {
   getItemList = (items) => {
-    console.log('here or again');
     return items.map(x => <Item onDeleteFunc={this.onDelete} id={x.id} title={x.title} key={x.id} />);
   }
 
