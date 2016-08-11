@@ -3,7 +3,25 @@ import Item from './Item';
 import './ItemList.css';
 
 export default class ItemList extends Component {
-  getItemList = (items) => items.map(x => <Item id={x.id} title={x.title} key={x.id} />);
+  getItemList = (items) => {
+    console.log('here or again');
+    return items.map(x => <Item onDeleteFunc={this.onDelete} id={x.id} title={x.title} key={x.id} />);
+  }
+
+  onDelete = (itemToDelete) => {
+    const newItems = this.props.items.filter( x => x.id !== itemToDelete.props.id );
+    this.props.items.splice(0,this.props.items.length);
+    this.props.items.push(...newItems);
+    return this.setState({needChange:true});
+  }
+
+  constructor(props) {
+    super();
+
+    this.state = {
+      needChange:false,
+    };
+  }
 
   render() {
     return (
@@ -15,7 +33,7 @@ export default class ItemList extends Component {
   }
 
   handleItemClick = (e) => {
-    
+
   }
 }
 

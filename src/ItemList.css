@@ -17,6 +17,11 @@
   cursor: pointer;
 }
 
+.item-list li img {
+  width:20px;
+  float: left;
+}
+
 li.notClicked {
   background: #444;
 }
