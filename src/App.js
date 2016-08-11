@@ -28,14 +28,16 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = {
-      id: this.state.items.length + 1,
-      title: this.refs.newItem.value,
-    }
-    this.setState({
-      items: [...this.state.items, newItem],
-      newItem: '',
-     });
+    if(this.refs.newItem.value.length) {
+      const newItem = {
+        id: this.state.items.length + 1,
+        title: this.refs.newItem.value,
+      }
+      this.setState({
+        items: [...this.state.items, newItem],
+        newItem: '',
+       });
+     }
   }
 
   render() {
