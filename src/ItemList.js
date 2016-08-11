@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Item from './Item';
 import './ItemList.css';
 
 export default class ItemList extends Component {
-  //getItemList = (items) => items.map(x => <Item title={x.title} />);
-
-  getItemList = function(items) {
-    return items.map(function(x) {
-      return <Item id={x.id} key={x.id} title={x.title} />
-    })
-  }
+  getItemList = (items) => items.map(x => <Item id={x.id} title={x.title} key={x.id} />);
 
   render() {
     return (
-      <div className="item-list">
-        <h2>Subhead</h2>
+      <div onClick={this.handleItemClick.bind(this)} className="item-list">
+        <h2>{this.props.subhead}</h2>
         <ul>{this.getItemList(this.props.items)}</ul>
       </div>
     );
   }
+
+  handleItemClick = (e) => {
+    
+  }
 }
+
+ItemList.propTypes = {
+  items: PropTypes.array,
+};
