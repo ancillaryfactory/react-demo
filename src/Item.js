@@ -4,7 +4,6 @@ export default class Item extends Component {
   handleClick = (e) => this.setState({clicked:"done"});
 
   deleteClick = (e) => {
-    this.setState({delete:true});
     this.props.onDeleteFunc(this)
   }
 
@@ -12,14 +11,16 @@ export default class Item extends Component {
     super();
 
     this.state = {
-      clicked:"notClicked",
-      "delete":false
+      clicked:"notClicked"
     };
   }
 
   render() {
     return (
-      <li className={this.state.clicked} onClick={this.handleClick} id={this.props.id}><img onClick={this.deleteClick} alt="delete" src="../img/1470962572_Cancel.png" />{this.props.title}</li>
+      <li className={this.state.clicked} onClick={this.handleClick} id={this.props.id}>
+        <img onClick={this.deleteClick} alt="delete" src="../img/1470962572_Cancel.png" />
+        {this.props.title}
+      </li>
     );
   }
 }
